@@ -28,13 +28,13 @@ public class DayNightCycle : MonoBehaviour
 
     private void Start()
     {
-        timeRate = 1f / fullDayLength;
+        timeRate = 1f / fullDayLength; 
         time = startTime;
     }
 
     private void Update()
     {
-        time = (time + timeRate * Time.deltaTime) % 1f;
+        time = (time + timeRate * Time.deltaTime) % 1f; // time을 0~1로 지키기 위함
         
         UpdateLighting(Sun, sunColor, sunIntensity);
         UpdateLighting(Moon, moonColor, moonIntensity);
