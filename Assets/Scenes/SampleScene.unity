@@ -1559,6 +1559,37 @@ MonoBehaviour:
   health: {fileID: 201334717}
   hunger: {fileID: 405199559}
   stamina: {fileID: 987154813}
+--- !u!1 &565046723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 565046724}
+  m_Layer: 6
+  m_Name: dropPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &565046724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565046723}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1436084277}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &619455748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2664,6 +2695,7 @@ MonoBehaviour:
   slots: []
   inventoryWindow: {fileID: 951053201}
   slotPanel: {fileID: 1230883440}
+  dropPosition: {fileID: 0}
   selectedItemName: {fileID: 625729205}
   selectedItemNDescription: {fileID: 1987236699}
   selectedStatName: {fileID: 1586399180}
@@ -3604,6 +3636,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 643723589}
+  - {fileID: 565046724}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1436084278
@@ -3807,6 +3840,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   condition: {fileID: 0}
   itemData: {fileID: 0}
+  dropPosition: {fileID: 565046724}
 --- !u!114 &1436084283
 MonoBehaviour:
   m_ObjectHideFlags: 0
