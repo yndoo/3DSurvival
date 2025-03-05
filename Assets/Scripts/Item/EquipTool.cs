@@ -7,6 +7,7 @@ public class EquipTool : Equip
     public float attackRate;
     private bool attacking;
     public float attackDistance;
+    public float useStamina;
 
     [Header("Resource Gathering")]
     public bool doesGatherResources;
@@ -27,11 +28,14 @@ public class EquipTool : Equip
     public override void OnAttackInput()
     {
         base.OnAttackInput();
-        if(!attacking)
+        if (!attacking)
         {
-            attacking = true;
-            animator.SetTrigger("Attack");
-            Invoke("OnCanAttack", attackRate);
+            if (CharacterManager.Instance.Player.condition.UseStamina(useStamina))
+            {
+                attacking = true;
+                animator.SetTrigger("Attack");
+                Invoke("OnCanAttack", attackRate);
+            }
         }
     }
 
@@ -45,9 +49,9 @@ public class EquipTool : Equip
         Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
 
-        if(Physics.Raycast(ray, out hit, attackDistance))
+        if (Physics.Raycast(ray, out hit, attackDistance))
         {
-            if(doesGatherResources && hit.collider.TryGetComponent(out Resource resource))
+            if (doesGatherResources && hit.collider.TryGetComponent(out Resource resource))
             {
                 resource.Gather(hit.point, hit.normal);
             }
