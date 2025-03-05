@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SceneTemplate;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Equipment : MonoBehaviour
 {
@@ -29,6 +30,14 @@ public class Equipment : MonoBehaviour
         {
             Destroy(curEquip.gameObject);
             curEquip = null;
+        }
+    }
+
+    public void OnAttackInput(InputAction.CallbackContext context)
+    {
+        if(context.phase == InputActionPhase.Performed && curEquip != null && controller.canLook)
+        {
+            curEquip.OnAttackInput();
         }
     }
 }

@@ -14,4 +14,27 @@ public class EquipTool : Equip
     [Header("Combat")]
     public bool doesDealDamage;
     public int damage;
+
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    public override void OnAttackInput()
+    {
+        base.OnAttackInput();
+        if(!attacking)
+        {
+            attacking = true;
+            animator.SetTrigger("Attack");
+            Invoke("OnCanAttack", attackRate);
+        }
+    }
+
+    void OnCanAttack()
+    {
+        attacking = false;
+    }
 }
