@@ -38,7 +38,6 @@ public class EquipTool : Equip
             }
         }
     }
-
     void OnCanAttack()
     {
         attacking = false;
@@ -54,6 +53,10 @@ public class EquipTool : Equip
             if (doesGatherResources && hit.collider.TryGetComponent(out Resource resource))
             {
                 resource.Gather(hit.point, hit.normal);
+            }
+            else if (hit.collider.TryGetComponent<IDamagable>(out IDamagable damagable))
+            {
+                damagable.TakePhysicalDamage(damage);
             }
         }
     }
